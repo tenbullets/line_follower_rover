@@ -20,6 +20,6 @@ include_directories(include ${catkin_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
 add_executable(motor_controller src/motor_controller.cpp)
 target_link_libraries(motor_controller ${catkin_LIBRARIES})
 
-add_executable(p_controller src/p_controller.cpp)
-target_link_libraries(p_controller ${catkin_LIBRARIES})
+add_executable(move_controller src/move_controller.cpp)
+target_link_libraries(move_controller ${catkin_LIBRARIES})
 

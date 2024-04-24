@@ -13,30 +13,31 @@ void commandsCallback(const std_msgs::String::ConstPtr& msg) {
 
   std::string command = msg -> data;
 
-  if(command == "GO") 
-  {
+  if (command == "GO") {
     ROS_INFO("GO");
     leftSpeed = -0.8;
     rightSpeed = -0.8;
-  } else if(command == "BACK") 
-  {
-    std::cout << "BACK" << std::endl;
-    leftSpeed = 0.5;
-    rightSpeed = 0.5;
-  } else if(command == "LEFT") 
-  {
-    std::cout << "LEFT" << std::endl;
-    leftSpeed = -1.0;
-    rightSpeed = -0.5;
-  } else if(command == "RIGHT") 
-  {
-    std::cout << "RIGHT" << std::endl;
-    leftSpeed = -0.5;
-    rightSpeed = -1.0;
-  } else 
-  {
+
+  } else if (command == "BACK") {
+    ROS_INFO("BACK");
+    leftSpeed = 0.16;
+    rightSpeed = 0.16;
+
+  } else if (command == "LEFT") {
+    ROS_INFO("LEFT");
+    leftSpeed = -0.74;
+    rightSpeed = -0.28;
+
+  } else if (command == "RIGHT") {
+    ROS_INFO("RIGHT");
+    leftSpeed = -0.28;
+    rightSpeed = -0.74;
+
+  } else {
+    ROS_INFO("STOP");
     leftSpeed = 0.0;  
     rightSpeed = 0.0;
+
   }
 
   std_msgs::Float64 msgLeft, msgRight;
@@ -48,7 +49,7 @@ void commandsCallback(const std_msgs::String::ConstPtr& msg) {
 }
 
 int main(int argc, char **argv) {
-  std::cout << "work" << std::endl;
+  ROS_INFO("READY");
   
   ros::init(argc, argv, "motorController");
   ros::NodeHandle node;
