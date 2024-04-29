@@ -17,27 +17,30 @@ void commandsCallback(const std_msgs::String::ConstPtr& msg) {
     ROS_INFO("GO");
     leftSpeed = -0.8;
     rightSpeed = -0.8;
-
   } else if (command == "BACK") {
     ROS_INFO("BACK");
     leftSpeed = 0.16;
     rightSpeed = 0.16;
-
   } else if (command == "LEFT") {
     ROS_INFO("LEFT");
     leftSpeed = -0.74;
     rightSpeed = -0.28;
-
   } else if (command == "RIGHT") {
     ROS_INFO("RIGHT");
     leftSpeed = -0.28;
     rightSpeed = -0.74;
-
+  } else if (command == "S_RIGHT") {
+    ROS_INFO("S_RIGHT");
+    leftSpeed = -0.08;
+    rightSpeed = -0.85;
+  } else if (command == "S_LEFT") {
+    ROS_INFO("S_LEFT");
+    leftSpeed = -0.85;
+    rightSpeed = -0.08;
   } else {
     ROS_INFO("STOP");
     leftSpeed = 0.0;  
     rightSpeed = 0.0;
-
   }
 
   std_msgs::Float64 msgLeft, msgRight;

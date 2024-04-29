@@ -18,15 +18,25 @@ bool is_black(int val) {
   return val < 39;
 }
 
+bool is_white(int val) {
+  return val > 147;
+}
+
 void plan(int left, int right) {
   ROS_INFO("%d %d", left, right);
 
   if (is_black(left) && is_black(right)) command = "GO";
   
-  if (is_black(left) && !is_black(right)) command = "LEFT";
+  if (is_black(left) && !is_black(right)) {
+    command = "LEFT";
+    if (is_white(right)) command = "S_LEFT";
+  }
   
-  if (!is_black(left) && is_black(right)) command = "RIGHT";
-
+  if (!is_black(left) && is_black(right)) {
+    command = "RIGHT";
+    if (is_white(left)) command = "S_RIGHT";
+  }
+    
   if(!is_black(left) && !is_black(right)) command = "BACK";
   
   std_msgs::String msg;
