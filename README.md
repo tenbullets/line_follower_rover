@@ -18,6 +18,9 @@ cd ~/catkin_ws
 source /opt/ros/noetic/setup.bash
 catkin build rover_pkg
 ```
+```
+sudo apt install ros-noetic-velocity-controllers
+```
 
 ## Запуск
 
